@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>House Price Predictor</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f2f5;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #0078D7;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 32px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-logo {
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 24px;
+    }
+
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links li a:hover {
+      color: #cce6ff;
+    }
+
+    /* Cover Section */
+    .cover {
+      background-image: url('https://www.decorpot.com/new-assets/assets/img/projects/header_bg.webp');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+    }
+
+    .tagline {
+      margin-top: 30px;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #ffa500;
+      animation: flipText 6s infinite;
+    }
+
+    @keyframes flipText {
+      0%, 100% { opacity: 1; }
+      33% { opacity: 0; }
+      66% { opacity: 1; }
+    }
+
+    /* Get Started Button */
+    .center-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 10vh;
+      background-color: #f0f2f5;
+    }
+
+    .get-started-btn {
+      padding: 14px 32px;
+      background-color: #0078D7;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    .get-started-btn:hover {
+      background-color: #005fa3;
+    }
+
+    /* Property Cards */
+    .card-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 60px 20px;
+      background: #f9fbfd;
+    }
+
+    .property-card {
+      background-color: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.1);
+      width: 320px;
+      transition: transform 0.3s ease;
+    }
+
+    .property-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .property-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .property-card-content {
+      padding: 20px;
+    }
+
+    .property-card-content h3 {
+      margin: 0 0 10px;
+      font-size: 1.4rem;
+      color: #333;
+    }
+
+    .property-card-content p {
+      margin: 0;
+      font-size: 1rem;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 10px;
+      }
+
+      .card-section {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .property-card {
+        width: 90%;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      .tagline {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-logo">House Price Predictor</div>
+    <ul class="nav-links">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="explore.html">Explore</a></li>
+      <li><a href="predict.html">Price Predictor</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Cover Section -->
+  <div class="cover">
+    <h1>Welcome to House Price Predictor</h1>
+    <div class="tagline">Your Dream, Our Promise</div>
+  </div>
+<!-- Property Cards -->
+  <div class="card-section">
+    <div class="property-card">
+      <img src="https://www.decorpot.com/images/decorpot-pune-experience-centre.webp" alt="House 1">
+      <div class="property-card-content">
+        <h3>Luxury Villa</h3>
+        <p>5 Bed · 4 Bath · ₹3.5 Cr<br>Banjara Hills, Hyderabad</p>
+      </div>
+    </div>
+
+    <div class="property-card">
+      <img src="https://www.decorpot.com/images/decorpot-noida-experience-centre.webp" alt="House 2">
+      <div class="property-card-content">
+        <h3>Smart Apartment</h3>
+        <p>2 Bed · 2 Bath · ₹85 Lakh<br>Hi-tech City View</p>
+      </div>
+    </div>
+
+    <div class="property-card">
+      <img src="https://www.decorpot.com/new-assets/innerpages/assets/img/process/proc1.webp" alt="House 3">
+      <div class="property-card-content">
+        <h3>Cozy Cottage</h3>
+        <p>3 Bed · 2 Bath · ₹1.1 Cr<br>Peaceful Suburb</p>
+      </div>
+    </div>
+
+    <div class="property-card">
+      <img src="https://www.decorpot.com/new-assets/assets/img/projects/proj4.webp" alt="House 4">
+      <div class="property-card-content">
+        <h3>Urban Studio</h3>
+        <p>1 Bed · 1 Bath · ₹55 Lakh<br>Walkable to Metro</p>
+      </div>
+    </div>
+
+    <div class="property-card">
+      <img src="https://www.decorpot.com/images/decorpot-hebbal-experience-centre.webp" alt="House 5">
+      <div class="property-card-content">
+        <h3>Green Retreat</h3>
+        <p>4 Bed · 3 Bath · ₹2.2 Cr<br>Surrounded by Nature</p>
+      </div>
+    </div>
+  </div>
+<section class="livspace-highlights" style="background-color: #ffffff; padding: 40px 20px; text-align: center;">
+  <h2 style="color: #2c3e50; margin-bottom: 30px;">Why Choose House Price Predictor in Hyderabad?</h2>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 900px; margin: auto;">
+    
+    <div style="flex: 1 1 200px; background-color: #f8f9fa; padding: 20px; border-radius: 8px;">
+      <h3 style="font-size: 28px; color: #2575fc;">9769+</h3>
+      <p style="font-size: 16px; color: #333;">Delivered Homes</p>
+    </div>
+
+    <div style="flex: 1 1 200px; background-color: #f8f9fa; padding: 20px; border-radius: 8px;">
+      <h3 style="font-size: 28px; color: #2575fc;">90+</h3>
+      <p style="font-size: 16px; color: #333;">Expert predictions</p>
+    </div>
+
+    <div style="flex: 1 1 200px; background-color: #f8f9fa; padding: 20px; border-radius: 8px;">
+      <h3 style="font-size: 28px; color: #2575fc;">4</h3>
+      <p style="font-size: 16px; color: #333;">Experience Centres</p>
+    </div>
+
+    <div style="flex: 1 1 200px; background-color: #f8f9fa; padding: 20px; border-radius: 8px;">
+      <h3 style="font-size: 28px; color: #2575fc;">4.6+</h3>
+      <p style="font-size: 16px; color: #333;">CSAT (Customer Satisfaction)</p>
+    </div>
+
+  </div>
+</section>
+
+  <!-- Get Started Button -->
+  <div class="center-button">
+    <a href="predict.html" class="get-started-btn">Get Started</a>
+  </div>
+
+  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Property Listings</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .map-container {
+      width: 100%;
+      height: 300px;
+      margin-bottom: 20px;
+    }
+    .property-card {
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin: 10px;
+      border-radius: 8px;
+      max-width: 600px;
+    }
+  </style>
+</head>
+<body>
+  
+<div class="map-container" style="width: 100%; height: 400px;">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.207758785813!2d78.4745540750956!3d17.38504408352759!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99e6f1f3e3e1%3A0x3c1f0e5f3e3e3e3e!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1692870000000"
+    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+  </iframe>
+</div>
+  
+<section class="faq-section" style="background-color: #f4f4f4; padding: 30px;">
+  <h2 style="text-align: center; color: #2c3e50;">Frequently Asked Questions</h2>
+  <div class="faq-container" style="max-width: 800px; margin: auto;">
+    <ul style="list-style: none; padding: 0;">
+      <li style="margin-bottom: 20px;">
+        <strong>1. How much does interior design cost in Hyderabad?</strong><br>
+        Costs vary based on scope, materials, and designer experience. Expect ₹2.5L–₹8L for 2BHK and ₹4L–₹12L for 3BHK.
+      </li>
+      <li style="margin-bottom: 20px;">
+        <strong>2. How to find an interior designer in Hyderabad?</strong><br>
+        Use platforms like Livspace, MagicBricks, or UrbanClap. Check portfolios, reviews, and schedule consultations.
+      </li>
+      <li style="margin-bottom: 20px;">
+        <strong>3. How much does a 2BHK interior cost in Hyderabad?</strong><br>
+        Typically ranges from ₹2.5L to ₹8L depending on customization and finishes.
+      </li>
+      <li style="margin-bottom: 20px;">
+        <strong>4. How much does 3BHK interior design cost in Hyderabad?</strong><br>
+        Expect ₹4L to ₹12L based on modular fittings, furniture, and decor.
+      </li>
+      <li style="margin-bottom: 20px;">
+        <strong>5. Why is Livspace perfect for your home interior design?</strong><br>
+        Livspace offers end-to-end solutions, transparent pricing, and professional project management.
+      </li>
+      <li style="margin-bottom: 20px;">
+        <strong>6. What will be the timelines for my project completion?</strong><br>
+        Most interior projects take 45–90 days depending on complexity and material availability.
+      </li>
+      <li style="margin-bottom: 20px;">
+        <strong>7. What services are included under home interior design?</strong><br>
+        Space planning, modular kitchen, wardrobes, false ceiling, lighting, painting, and furniture.
+      </li>
+    </ul>
+  </div>
+</section>
+
+</body>
+</html>
