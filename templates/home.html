@@ -1,359 +1,380 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>House Price Predictor</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>House Price Predictor | Interior & Property Insights</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
 
-    html, body {
-      height: 100%;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f0f2f5;
-    }
+body{
+  font-family:'Segoe UI',sans-serif;
+  background:#f8f9fb;
+  color:#333;
+}
 
-    /* Navbar */
-    .navbar {
-      background-color: #0078D7;
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 14px 32px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+/* NAVBAR */
+.navbar{
+  background:#1e1e2f;
+  color:white;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 50px;
+}
 
-    .nav-logo {
-      font-size: 1.6rem;
-      font-weight: bold;
-    }
+.navbar h2{
+  font-weight:600;
+  letter-spacing:1px;
+}
 
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 24px;
-    }
+.nav-links{
+  display:flex;
+  gap:30px;
+}
 
-    .nav-links li a {
-      color: white;
-      text-decoration: none;
-      font-size: 1rem;
-      transition: color 0.3s ease;
-    }
+.nav-links a{
+  color:white;
+  text-decoration:none;
+  font-size:15px;
+  font-weight:500;
+  transition:0.3s;
+}
 
-    .nav-links li a:hover {
-      color: #cce6ff;
-    }
+.nav-links a:hover{
+  color:#ffb347;
+}
 
-    /* Cover Section */
-    .cover {
-      background-image: url('https://www.decorpot.com/new-assets/assets/img/projects/header_bg.webp');
-      background-size: cover;
-      background-position: center;
-      height: 100vh;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      text-align: center;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
-    }
+/* HERO */
+.cover{
+  background:url('https://www.decorpot.com/new-assets/assets/img/projects/header_bg.webp') center/cover no-repeat;
+  height:95vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:white;
+}
 
-    h1 {
-      font-size: 3.5rem;
-      margin-bottom: 20px;
-    }
+.cover h1{
+  font-size:3.5rem;
+  margin-bottom:20px;
+}
 
-    .tagline {
-      margin-top: 30px;
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: #ffa500;
-      animation: flipText 6s infinite;
-    }
+.tagline{
+  font-size:1.5rem;
+  color:#ffcc70;
+}
 
-    @keyframes flipText {
-      0%, 100% { opacity: 1; }
-      33% { opacity: 0; }
-      66% { opacity: 1; }
-    }
+/* PROPERTY CARDS */
+.card-section{
+  padding:80px 20px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:40px;
+}
 
-    /* Get Started Button */
-    .center-button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 10vh;
-      background-color: #f0f2f5;
-    }
+.property-card{
+  width:320px;
+  background:white;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 12px 25px rgba(0,0,0,0.08);
+  transition:0.3s;
+}
 
-    .get-started-btn {
-      padding: 14px 32px;
-      background-color: #0078D7;
-      color: white;
-      font-size: 1.2rem;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: background-color 0.3s ease;
-    }
+.property-card:hover{
+  transform:translateY(-8px);
+}
 
-    .get-started-btn:hover {
-      background-color: #005fa3;
-    }
+.property-card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+}
 
-    /* Property Cards */
-    .card-section {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      padding: 60px 20px;
-      background: #f9fbfd;
-    }
+.property-card-content{
+  padding:20px;
+}
 
-    .property-card {
-      background-color: white;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.1);
-      width: 320px;
-      transition: transform 0.3s ease;
-    }
+.property-card-content h3{
+  margin-bottom:8px;
+}
 
-    .property-card:hover {
-      transform: translateY(-8px);
-    }
+.property-card-content p{
+  color:#666;
+}
 
-    .property-card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-    }
+/* STATS */
+.stats{
+  background:#1e1e2f;
+  color:white;
+  padding:60px 20px;
+  text-align:center;
+}
 
-    .property-card-content {
-      padding: 20px;
-    }
+.stats-container{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:50px;
+}
 
-    .property-card-content h3 {
-      margin: 0 0 10px;
-      font-size: 1.4rem;
-      color: #333;
-    }
+.stat-box h3{
+  font-size:2rem;
+  color:#ffcc70;
+}
 
-    .property-card-content p {
-      margin: 0;
-      font-size: 1rem;
-      color: #666;
-      line-height: 1.5;
-    }
+/* MAP */
+.map-container{
+  height:400px;
+}
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+/* FAQ */
+.faq-section{
+  padding:80px 20px;
+  background:#ffffff;
+}
 
-      .nav-links {
-        flex-direction: column;
-        gap: 12px;
-        margin-top: 10px;
-      }
+.faq-section h2{
+  text-align:center;
+  margin-bottom:40px;
+  font-size:2rem;
+}
 
-      .card-section {
-        flex-direction: column;
-        align-items: center;
-      }
+.faq-item{
+  max-width:900px;
+  margin:15px auto;
+  background:#f4f6f9;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
 
-      .property-card {
-        width: 90%;
-      }
+.faq-item strong{
+  display:block;
+  margin-bottom:8px;
+  color:#1e1e2f;
+}
 
-      h1 {
-        font-size: 2.5rem;
-      }
+/* QUICK LINKS */
+.quick-links{
+  background:#2b2b3c;
+  color:white;
+  padding:60px 20px;
+}
 
-      .tagline {
-        font-size: 1.4rem;
-      }
-    }
-  </style>
+.quick-container{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-around;
+}
+
+.quick-box{
+  width:250px;
+  margin:10px;
+}
+
+.quick-box h3{
+  margin-bottom:15px;
+  color:#ffcc70;
+}
+
+.quick-box ul{
+  list-style:none;
+}
+
+.quick-box li{
+  margin-bottom:10px;
+}
+
+.quick-box a{
+  color:white;
+  text-decoration:none;
+}
+
+.quick-box a:hover{
+  color:#ffcc70;
+}
+
+/* FOOTER */
+.footer{
+  background:#1e1e2f;
+  color:white;
+  text-align:center;
+  padding:25px;
+  font-size:14px;
+}
+
+@media(max-width:768px){
+  .navbar{
+    flex-direction:column;
+    gap:15px;
+  }
+  .nav-links{
+    flex-direction:column;
+    align-items:center;
+  }
+}
+</style>
 </head>
+
 <body>
 
-  <!-- Navigation Bar -->
-  <nav class="navbar">
-    <div class="nav-logo">House Price Predictor</div>
-    <ul class="nav-links">
-      <li><a href="home.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="explore.html">Explore</a></li>
-      <li><a href="predict.html">Price Predictor</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- Cover Section -->
-  <div class="cover">
-    <h1>Welcome to House Price Predictor</h1>
-    <div class="tagline">Your Dream, Our Promise</div>
+<!-- NAVBAR -->
+<nav class="navbar">
+  <h2>House Price Predictor</h2>
+  <div class="nav-links">
+    <a href="{{ url_for('home') }}">Home</a>
+    <a href="{{ url_for('explore') }}">Explore</a>
+    <a href="{{ url_for('about') }}">About Us</a>
+    <a href="{{ url_for('predict') }}">Price Predictor</a>
+    <a href="{{ url_for('contact') }}">Contact Us</a>
   </div>
-<!-- Property Cards -->
-  <div class="card-section">
-    <div class="property-card">
-      <img src="https://www.decorpot.com/images/decorpot-pune-experience-centre.webp" alt="House 1">
-      <div class="property-card-content">
-        <h3>Luxury Villa</h3>
-        <p>5 Bed · 4 Bath · ₹3.5 Cr<br>Banjara Hills, Hyderabad</p>
-      </div>
-    </div>
+</nav>
 
-    <div class="property-card">
-      <img src="https://www.decorpot.com/images/decorpot-noida-experience-centre.webp" alt="House 2">
-      <div class="property-card-content">
-        <h3>Smart Apartment</h3>
-        <p>2 Bed · 2 Bath · ₹85 Lakh<br>Hi-tech City View</p>
-      </div>
-    </div>
-
-    <div class="property-card">
-      <img src="https://www.decorpot.com/new-assets/innerpages/assets/img/process/proc1.webp" alt="House 3">
-      <div class="property-card-content">
-        <h3>Cozy Cottage</h3>
-        <p>3 Bed · 2 Bath · ₹1.1 Cr<br>Peaceful Suburb</p>
-      </div>
-    </div>
-
-    <div class="property-card">
-      <img src="https://www.decorpot.com/new-assets/assets/img/projects/proj4.webp" alt="House 4">
-      <div class="property-card-content">
-        <h3>Urban Studio</h3>
-        <p>1 Bed · 1 Bath · ₹55 Lakh<br>Walkable to Metro</p>
-      </div>
-    </div>
-
-    <div class="property-card">
-      <img src="https://www.decorpot.com/images/decorpot-hebbal-experience-centre.webp" alt="House 5">
-      <div class="property-card-content">
-        <h3>Green Retreat</h3>
-        <p>4 Bed · 3 Bath · ₹2.2 Cr<br>Surrounded by Nature</p>
-      </div>
-    </div>
-  </div>
-<section class="livspace-highlights" style="background-color: #ffffff; padding: 40px 20px; text-align: center;">
-  <h2 style="color: #2c3e50; margin-bottom: 30px;">Why Choose House Price Predictor in Hyderabad?</h2>
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 900px; margin: auto;">
-    
-    <div style="flex: 1 1 200px; background-color: #f8f9fa; padding: 20px; border-radius: 8px;">
-      <h3 style="font-size: 28px; color: #2575fc;">9769+</h3>
-      <p style="font-size: 16px; color: #333;">Delivered Homes</p>
-    </div>
-
-    <div style="flex: 1 1 200px; background-color: #f8f9fa; padding: 20px; border-radius: 8px;">
-      <h3 style="font-size: 28px; color: #2575fc;">90+</h3>
-      <p style="font-size: 16px; color: #333;">Expert predictions</p>
-    </div>
-
-    <div style="flex: 1 1 200px; background-color: #f8f9fa; padding: 20px; border-radius: 8px;">
-      <h3 style="font-size: 28px; color: #2575fc;">4</h3>
-      <p style="font-size: 16px; color: #333;">Experience Centres</p>
-    </div>
-
-    <div style="flex: 1 1 200px; background-color: #f8f9fa; padding: 20px; border-radius: 8px;">
-      <h3 style="font-size: 28px; color: #2575fc;">4.6+</h3>
-      <p style="font-size: 16px; color: #333;">CSAT (Customer Satisfaction)</p>
-    </div>
-
-  </div>
+<!-- HERO -->
+<section class="cover">
+<h1>Welcome to House Price Predictor!</h1>
+<p class="tagline">Premium Interiors & Smart Property Insights in Hyderabad</p>
 </section>
 
-  <!-- Get Started Button -->
-  <div class="center-button">
-    <a href="predict.html" class="get-started-btn">Get Started</a>
-  </div>
+<!-- PROPERTY CARDS -->
+<section class="card-section">
 
-  
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Property Listings</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    .map-container {
-      width: 100%;
-      height: 300px;
-      margin-bottom: 20px;
-    }
-    .property-card {
-      border: 1px solid #ccc;
-      padding: 15px;
-      margin: 10px;
-      border-radius: 8px;
-      max-width: 600px;
-    }
-  </style>
-</head>
-<body>
-  
-<div class="map-container" style="width: 100%; height: 400px;">
-  <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.207758785813!2d78.4745540750956!3d17.38504408352759!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99e6f1f3e3e1%3A0x3c1f0e5f3e3e3e3e!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1692870000000"
-    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
-  </iframe>
+<div class="property-card">
+<img src="https://www.decorpot.com/images/decorpot-pune-experience-centre.webp">
+<div class="property-card-content">
+<h3>Luxury Villa</h3>
+<p>5 Bed · 4 Bath · ₹3.5 Cr<br>Banjara Hills</p>
 </div>
-  
-<section class="faq-section" style="background-color: #f4f4f4; padding: 30px;">
-  <h2 style="text-align: center; color: #2c3e50;">Frequently Asked Questions</h2>
-  <div class="faq-container" style="max-width: 800px; margin: auto;">
-    <ul style="list-style: none; padding: 0;">
-      <li style="margin-bottom: 20px;">
-        <strong>1. How much does interior design cost in Hyderabad?</strong><br>
-        Costs vary based on scope, materials, and designer experience. Expect ₹2.5L–₹8L for 2BHK and ₹4L–₹12L for 3BHK.
-      </li>
-      <li style="margin-bottom: 20px;">
-        <strong>2. How to find an interior designer in Hyderabad?</strong><br>
-        Use platforms like Livspace, MagicBricks, or UrbanClap. Check portfolios, reviews, and schedule consultations.
-      </li>
-      <li style="margin-bottom: 20px;">
-        <strong>3. How much does a 2BHK interior cost in Hyderabad?</strong><br>
-        Typically ranges from ₹2.5L to ₹8L depending on customization and finishes.
-      </li>
-      <li style="margin-bottom: 20px;">
-        <strong>4. How much does 3BHK interior design cost in Hyderabad?</strong><br>
-        Expect ₹4L to ₹12L based on modular fittings, furniture, and decor.
-      </li>
-      <li style="margin-bottom: 20px;">
-        <strong>5. Why is Livspace perfect for your home interior design?</strong><br>
-        Livspace offers end-to-end solutions, transparent pricing, and professional project management.
-      </li>
-      <li style="margin-bottom: 20px;">
-        <strong>6. What will be the timelines for my project completion?</strong><br>
-        Most interior projects take 45–90 days depending on complexity and material availability.
-      </li>
-      <li style="margin-bottom: 20px;">
-        <strong>7. What services are included under home interior design?</strong><br>
-        Space planning, modular kitchen, wardrobes, false ceiling, lighting, painting, and furniture.
-      </li>
-    </ul>
-  </div>
+</div>
+
+<div class="property-card">
+<img src="https://www.decorpot.com/images/decorpot-noida-experience-centre.webp">
+<div class="property-card-content">
+<h3>Smart Apartment</h3>
+<p>2 Bed · 2 Bath · ₹85 Lakh<br>Hitech City</p>
+</div>
+</div>
+
+<div class="property-card">
+<img src="https://www.decorpot.com/new-assets/innerpages/assets/img/process/proc1.webp">
+<div class="property-card-content">
+<h3>Cozy Cottage</h3>
+<p>3 Bed · 2 Bath · ₹1.1 Cr<br>Peaceful Suburb</p>
+</div>
+</div>
+
+<div class="property-card">
+<img src="https://www.decorpot.com/new-assets/assets/img/projects/proj4.webp">
+<div class="property-card-content">
+<h3>Urban Studio</h3>
+<p>1 Bed · 1 Bath · ₹55 Lakh<br>Metro Walkable</p>
+</div>
+</div>
+
+<div class="property-card">
+<img src="https://www.decorpot.com/images/decorpot-hebbal-experience-centre.webp">
+<div class="property-card-content">
+<h3>Green Retreat</h3>
+<p>4 Bed · 3 Bath · ₹2.2 Cr<br>Nature View</p>
+</div>
+</div>
+
 </section>
+
+<!-- STATS -->
+<section class="stats">
+<div class="stats-container">
+<div class="stat-box"><h3>9769+</h3><p>Delivered Homes</p></div>
+<div class="stat-box"><h3>90+</h3><p>Expert Predictions</p></div>
+<div class="stat-box"><h3>4</h3><p>Experience Centres</p></div>
+<div class="stat-box"><h3>4.6+</h3><p>Customer Satisfaction</p></div>
+</div>
+</section>
+
+<!-- MAP -->
+<div class="map-container">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.207758785813!2d78.4745540750956!3d17.38504408352759!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99e6f1f3e3e1%3A0x3c1f0e5f3e3e3e3e!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1692870000000"
+width="100%" height="100%" style="border:0;" loading="lazy"></iframe>
+</div>
+
+<!-- FAQ -->
+<!-- HOUSE PRICE FAQ -->
+<section class="faq-section">
+<h2>Frequently Asked Questions About House Prices</h2>
+
+<div class="faq-item">
+<strong>1. How is the house price calculated?</strong>
+Our system uses machine learning algorithms that analyze property size, location, rate per square foot, building status, and market trends to predict accurate house prices.
+</div>
+
+<div class="faq-item">
+<strong>2. What factors affect house prices the most?</strong>
+Key factors include location, proximity to metro and IT hubs, square footage, amenities, building age, market demand, and infrastructure development.
+</div>
+
+<div class="faq-item">
+<strong>3. Is the predicted price 100% accurate?</strong>
+No prediction model can guarantee 100% accuracy, but our system provides highly reliable estimates based on historical and current market data.
+</div>
+
+<div class="faq-item">
+<strong>4. Why do house prices vary across different areas of Hyderabad?</strong>
+Prices vary due to demand, connectivity, nearby schools/hospitals, commercial growth, and overall neighborhood development.
+</div>
+
+<div class="faq-item">
+<strong>5. How often are property prices updated?</strong>
+Property trends are dynamic. Prices may change based on market demand, interest rates, and new infrastructure developments.
+</div>
+
+</section>
+
+<!-- QUICK LINKS -->
+<section class="quick-links">
+<div class="quick-container">
+
+<div class="quick-box">
+<h3>Quick Links</h3>
+<ul>
+<li><a href="{{ url_for('home') }}">Home</a></li>
+<li><a href="{{ url_for('explore') }}">Explore</a></li>
+<li><a href="{{ url_for('predict') }}">Price Predictor</a></li>
+<li><a href="{{ url_for('contact') }}">Contact</a></li>
+</ul>
+</div>
+
+<div class="quick-box">
+<h3>Locations</h3>
+<ul>
+<li>Banjara Hills</li>
+<li>Hitech City</li>
+<li>Gachibowli</li>
+<li>Kondapur</li>
+</ul>
+</div>
+
+<div class="quick-box">
+<h3>Contact</h3>
+<ul>
+<li>Email: support@housepredictor.com</li>
+<li>Phone: +91 9346720073</li>
+<li>Hyderabad, Telangana</li>
+</ul>
+</div>
+
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+© 2026 House Price Predictor | Premium Interior & Real Estate Platform
+</footer>
 
 </body>
 </html>
